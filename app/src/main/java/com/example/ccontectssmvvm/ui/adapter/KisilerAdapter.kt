@@ -12,6 +12,7 @@ import com.example.ccontectssmvvm.data.entity.Kisiler
 import com.example.ccontectssmvvm.databinding.CardTasarimBinding
 import com.example.ccontectssmvvm.ui.fragment.AnasayfaFragmentDirections
 import com.example.ccontectssmvvm.ui.viewmodel.AnasayfaViewModel
+import com.example.ccontectssmvvm.util.gecisYap
 import com.google.android.material.snackbar.Snackbar
 
 class KisilerAdapter(var mContext:Context, var kisilerListesi :List<Kisiler>,var viewModel: AnasayfaViewModel ) :RecyclerView.Adapter<KisilerAdapter.CardTasarimTutucu>() {
@@ -37,7 +38,7 @@ class KisilerAdapter(var mContext:Context, var kisilerListesi :List<Kisiler>,var
 
         t.cardViewSatir.setOnClickListener {
             val gecis = AnasayfaFragmentDirections.actionAnasayfaFragmentToKisiDetayFragment(kisi = kisi)
-            Navigation.findNavController(it).navigate(gecis)
+            Navigation.gecisYap(it,gecis)
         }
 
         t.imageViewSil.setOnClickListener {

@@ -17,6 +17,7 @@ import com.example.ccontectssmvvm.data.entity.Kisiler
 import com.example.ccontectssmvvm.databinding.FragmentAnasayfaBinding
 import com.example.ccontectssmvvm.ui.adapter.KisilerAdapter
 import com.example.ccontectssmvvm.ui.viewmodel.AnasayfaViewModel
+import com.example.ccontectssmvvm.util.gecisYap
 
 
 class AnasayfaFragment : Fragment() {
@@ -62,8 +63,9 @@ class AnasayfaFragment : Fragment() {
         viewModel=tempViewModel
     }
 
+    //ektension ile geçişi kısaltık
     fun fabTikla(it:View){
-        Navigation.findNavController(it).navigate(R.id.action_anasayfaFragment_to_kisiKayitFragment)
+        Navigation.gecisYap(it,R.id.action_anasayfaFragment_to_kisiKayitFragment)
     }
 
     /*fun ara(aramaKelimesi:String){
