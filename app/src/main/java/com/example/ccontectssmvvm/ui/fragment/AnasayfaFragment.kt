@@ -18,8 +18,10 @@ import com.example.ccontectssmvvm.databinding.FragmentAnasayfaBinding
 import com.example.ccontectssmvvm.ui.adapter.KisilerAdapter
 import com.example.ccontectssmvvm.ui.viewmodel.AnasayfaViewModel
 import com.example.ccontectssmvvm.util.gecisYap
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class AnasayfaFragment : Fragment() {
     private lateinit var binding: FragmentAnasayfaBinding
     private lateinit var viewModel: AnasayfaViewModel

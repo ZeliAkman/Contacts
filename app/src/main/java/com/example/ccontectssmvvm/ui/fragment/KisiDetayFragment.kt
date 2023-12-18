@@ -12,8 +12,10 @@ import androidx.navigation.fragment.navArgs
 import com.example.ccontectssmvvm.R
 import com.example.ccontectssmvvm.databinding.FragmentKisiDetayBinding
 import com.example.ccontectssmvvm.ui.viewmodel.KisiDetayViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class KisiDetayFragment : Fragment() {
     private lateinit var binding: FragmentKisiDetayBinding
     private lateinit var viewModel: KisiDetayViewModel
