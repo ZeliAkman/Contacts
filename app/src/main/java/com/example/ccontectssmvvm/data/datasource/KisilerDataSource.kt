@@ -16,26 +16,25 @@ class KisilerDataSource(var kdao:KisilerDao) {
 
     suspend fun ara(aramaKelimesi:String) :List<Kisiler> =
         withContext(Dispatchers.IO){
-            val kisilerListesi = ArrayList<Kisiler>()
-            val k1 = Kisiler(1,"Ahmet","1111")
-            val k2 = Kisiler(2,"Zeynep","2222")
-            val k3 = Kisiler(3,"Beyza","3333")
-            kisilerListesi.add(k1)
-            kisilerListesi.add(k2)
-            kisilerListesi.add(k3)
-            return@withContext kisilerListesi
+            return@withContext kdao.ara(aramaKelimesi)
         }
 
 
 
     suspend fun kaydet(kisi_ad:String,kisi_tel:String){
+        val yeniKisi = Kisiler(0,kisi_ad,kisi_tel)
+        kdao.kaydet(yeniKisi)
         Log.e("Kişi Kaydet","$kisi_ad - $kisi_tel")
     }
 
     suspend fun buttonGuncelle(kisi_id:Int,kisi_ad:String,kisi_tel:String){
+        val guncellenenKisi = Kisiler(kisi_id,kisi_ad,kisi_tel)
+        kdao.guncelle(guncellenenKisi)
         Log.e("Kişi Güncelle","$kisi_id - $kisi_ad - $kisi_tel")
     }
     suspend fun sil(kisi_id:Int){
+        val silinenKisi = Kisiler(kisi_id,"","")
+        kdao.guncelle(silinenKisi)
         Log.e("Kişi Sil",kisi_id.toString())
     }
 
