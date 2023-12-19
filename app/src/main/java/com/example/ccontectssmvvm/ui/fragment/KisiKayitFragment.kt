@@ -26,10 +26,8 @@ class KisiKayitFragment : Fragment() {
         binding.toolbarBaslik = "Kişi Kayıt"
 
 
-
         return binding.root
     }
-
 
     // viewModel Bağlama
 

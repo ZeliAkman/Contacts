@@ -2,22 +2,15 @@ package com.example.ccontectssmvvm.data.datasource
 
 import android.util.Log
 import com.example.ccontectssmvvm.data.entity.Kisiler
+import com.example.ccontectssmvvm.room.KisilerDao
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class KisilerDataSource {
+class KisilerDataSource(var kdao:KisilerDao) {
 
     suspend fun kisileriYukle() : List<Kisiler> =
         withContext(Dispatchers.IO){
-            val kisilerListesi = ArrayList<Kisiler>()
-            val k1 = Kisiler(1,"Ahmet","1111")
-            val k2 = Kisiler(2,"Zeynep","2222")
-            val k3 = Kisiler(3,"Beyza","3333")
-            kisilerListesi.add(k1)
-            kisilerListesi.add(k2)
-            kisilerListesi.add(k3)
-            return@withContext kisilerListesi
-
+            return@withContext kdao.kisileriYukle()
         }
 
 
